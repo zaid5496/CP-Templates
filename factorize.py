@@ -23,6 +23,20 @@ def factorize(x, spf):
         x //= p
     return factors
 
+def primefactors(n, spf):
+    """
+    Returns a sorted list of distinct prime factors of n,
+    using the precomputed SPF array and a while loop that divides out repeated factors.
+    """
+    factors = []
+    while n != 1:
+        p = spf[n]
+        factors.append(p)
+        # Divide out all factors of p:
+        while n % p == 0:
+            n //= p
+    return factors
+
 def generate_divisors_from_factors(factors):            
     """
     Generate all divisors from the prime factorization.
