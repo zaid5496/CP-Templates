@@ -9,7 +9,7 @@ class DSU:
         self.parent[v] = v
         self.size[v] = 1
     
-    def get_size(self, v):
+    def get_size(self, v):# rkckfm
         """Get the size of the set containing element v."""
         parent = self.find(v)
         return self.size[parent]
