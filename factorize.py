@@ -61,7 +61,7 @@ def get_divisors(x, spf):        #For numbers up to 10^6 the maximum number of d
 
 
 
-limit = 10^6 + 1  
+limit = 10**6 + 1  
 spf = compute_spf(limit)
 
 x = 360  # Example number
