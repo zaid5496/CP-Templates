@@ -58,6 +58,26 @@ def get_divisors(x, spf):        #For numbers up to 10^6 the maximum number of d
     factors = factorize(x, spf)
     return generate_divisors_from_factors(factors)
 
+def compute_prime_counts(limit):
+    """
+    Computes the number of distinct prime factors for each number in [0, limit).
+
+    Args:
+        limit (int): The upper bound (exclusive) for computing the distinct prime factor counts.
+
+    Returns:
+        list: A list `prime_cnt` where prime_cnt[i] gives the number of distinct prime factors of i.
+    """
+    prime_cnt = [0] * limit
+    # Start from 2, since 0 and 1 are not prime.
+    for i in range(2, limit):
+        # If prime_cnt[i] is still 0, i is a prime number.
+        if prime_cnt[i] == 0:
+            # Mark all multiples of i by incrementing their count of prime factors.
+            for j in range(i, limit, i):
+                prime_cnt[j] += 1
+    return prime_cnt
+
 
 
 
