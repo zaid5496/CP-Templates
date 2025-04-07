@@ -67,3 +67,8 @@ spf = compute_spf(limit)
 x = 360  # Example number
 divisors = get_divisors(x, spf)
 print("Divisors of", x, "are:", divisors)
+
+
+""" A standard number theory fact is that if k has prime–factorization with 
+ distinct primes then the number of ways to split its factors into two coprime numbers is exactly 2^r.
+"""
