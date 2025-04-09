@@ -1,3 +1,5 @@
+# https://codeforces.com/problemset/problem/1213/G
+
 class DSU:
     def __init__(self, n):
         """Initialize DSU with n elements."""
