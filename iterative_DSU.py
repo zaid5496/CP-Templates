@@ -5,13 +5,14 @@ class DSU:
         """Initialize DSU with n elements."""
         self.parent = list(range(n))  # Each element is its own parent initially
         self.size = [1] * n          # Size of each set is initially 1
+        self.components = n
 
     def make(self, v):
         """Initialize element v as its own set."""
         self.parent[v] = v
         self.size[v] = 1
     
-    def get_size(self, v):# rkckfm
+    def get_size(self, v):
         """Get the size of the set containing element v."""
         parent = self.find(v)
         return self.size[parent]
@@ -42,7 +43,12 @@ class DSU:
                 rootA, rootB = rootB, rootA
             self.parent[rootB] = rootA
             self.size[rootA] += self.size[rootB]
- 
+            self.components -= 1
+    
+    def get_components(self):
+        """returns the number of connected components"""
+        return self.components - 1  # - 1 bcs 1 of 0 indexing
+        
     def connected(self, a, b):
         """Check if elements a and b are in the same set."""
         return self.find(a) == self.find(b)
