@@ -1,4 +1,5 @@
 # https://codeforces.com/problemset/problem/1213/G
+# https://leetcode.com/problems/number-of-good-paths/description
 
 class DSU:
     def __init__(self, n):
