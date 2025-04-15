@@ -72,3 +72,6 @@ tree.update(2, 10)
 
 # Query range sum from index 1 to 3
 print(tree.query(1, 3))  # Output: 16 (2 + 10 + 4)
+
+# problems list:
+# https://leetcode.com/problems/count-good-triplets-in-an-array/description/?envType=daily-question&envId=2025-04-15
