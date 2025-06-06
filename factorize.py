@@ -1,4 +1,4 @@
-def compute_spf(n):
+def compute_spf(n):        # O(nloglogn)
     """
     Compute the SPF (smallest prime factor) for every number up to n.
     Returns a list spf where spf[i] is the smallest prime that divides i.
@@ -11,7 +11,7 @@ def compute_spf(n):
                     spf[j] = i
     return spf
 
-def factorize(x, spf):
+def factorize(x, spf):    # O(logx)
     """
     Factorize the number x using the SPF table.
     Returns a dictionary where keys are prime factors and values are their exponents.
@@ -51,7 +51,7 @@ def generate_divisors_from_factors(factors):
         divisors.extend(current_divisors)
     return sorted(divisors)
 
-def get_divisors(x, spf):        #For numbers up to 10^6 the maximum number of divisors d(x) is 240
+def get_divisors(x, spf):        # For numbers up to 10^6 the maximum number of divisors d(x) is 240
     """
     Get all divisors of x using the precomputed SPF table.
     """
