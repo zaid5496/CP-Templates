@@ -2,8 +2,9 @@ class FenwickTree:
     def __init__(self, n):
         # Initialize the Fenwick Tree with n elements
         # Internal array to store the tree values (1-indexed)
-        self.tree = [0] * (n + 1)
-        self.n = n
+        self.tree = [0]*(n+5)       # extra buffer
+        self.n = n + 2                  # to avoid index issues
+
 
     def update(self, index, delta):
         """Update the value at 'index' by 'delta'."""
