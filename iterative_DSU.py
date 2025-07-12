@@ -1,6 +1,7 @@
 # https://codeforces.com/problemset/problem/1213/G
 # https://leetcode.com/problems/number-of-good-paths/description
-# https://leetcode.com/problems/largest-component-size-by-common-factor/
+# https://leetcode.com/problems/largest-component-size-by-common-factor
+# https://leetcode.com/problems/gcd-sort-of-an-array
 
 class DSU:
     def __init__(self, n):
