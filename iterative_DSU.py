@@ -1,5 +1,6 @@
 # https://codeforces.com/problemset/problem/1213/G
 # https://leetcode.com/problems/number-of-good-paths/description
+# https://leetcode.com/problems/largest-component-size-by-common-factor/
 
 class DSU:
     def __init__(self, n):
@@ -7,6 +8,7 @@ class DSU:
         self.parent = list(range(n))  # Each element is its own parent initially
         self.size = [1] * n          # Size of each set is initially 1
         self.components = n
+        self.mx = 1
 
     def make(self, v):
         """Initialize element v as its own set."""
@@ -44,12 +46,17 @@ class DSU:
                 rootA, rootB = rootB, rootA
             self.parent[rootB] = rootA
             self.size[rootA] += self.size[rootB]
+            self.mx = max(self.mx, self.size[rootA])
             self.components -= 1
     
     def get_components(self):
         """returns the number of connected components"""
         return self.components - 1  # - 1 bcs 1 of 0 indexing
-        
+    
+    def max_compsize(self):
+        """returns the size of the largest component"""
+        return self.mx
+    
     def connected(self, a, b):
         """Check if elements a and b are in the same set."""
         return self.find(a) == self.find(b)
