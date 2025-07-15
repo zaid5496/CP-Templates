@@ -37,3 +37,5 @@ def generate(factors):
 def get_divisors(x, spf):        # For numbers up to 10^6 the maximum number of divisors d(x) is 240
     factors = factorize(x, spf)
     return generate(factors)
+
+spf = compute_spf(10**6+1)
