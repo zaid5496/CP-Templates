@@ -92,3 +92,21 @@ print("Divisors of", x, "are:", divisors)
 """ A standard number theory fact is that if k has prime–factorization with 
  distinct primes then the number of ways to split its factors into two coprime numbers is exactly 2^r.
 """
+
+
+"""
+
+| Function                           | Time Complexity                |
+| ---------------------------------- | ------------------------------ |
+| `compute_spf(n)`                   | O(n loglogn)                   |
+| `factorize(x, spf)`                | O(log x)                       |
+| `primefactors(n, spf)`             | O(log n)                       |
+| `generate_divisors_from_factors()` | O(d), d <= 240 for upto 1e6    |
+| `get_divisors(x, spf)`             | O(log x + d)                   |
+| `compute_prime_counts(limit)`      | O(n loglogn)                   |
+
+
+d = 240, n <= 1e6
+d = 1344, n <= 1e9
+d = 103680, n <= 1e18
+"""
