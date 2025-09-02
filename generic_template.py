@@ -1,5 +1,5 @@
 import sys, math, heapq, bisect, random, secrets, copy, threading
-from random import randint
+from random import randint, getrandbits
 from functools import cache, lru_cache
 from collections import deque, Counter, defaultdict
 from bisect import bisect_right, bisect_left
@@ -104,9 +104,12 @@ class MyDict:
         
 #-------------------------------------------------------------------------------------------------------------------#        
 class MySet:
-    def __init__(self):
+    def __init__(self, iterable=None):
         self.random = getrandbits(64)
         self.set = set()
+        if iterable is not None:
+            for key in iterable:
+                self.add(key)
     def add(self, key):
         self.set.add(self.random ^ key)
     def discard(self, key):
