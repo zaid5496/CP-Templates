@@ -1,15 +1,14 @@
 MOD = 10**9 + 7
 MAX = 10**6  # adjust this according to the constraints of the problem..!!
 def precompute_factorials(MAX, MOD):
-    """ Precomputes factorials and inverse factorials up to n """
-    fact = [1]*(MAX + 1)
-    for i in range(2, MAX + 1):
-        fact[i] = (fact[i - 1] * i) % MOD
+    fact = [1]*(MAX+1)
+    for i in range(2, MAX+1):
+        fact[i] = (fact[i-1]*i) % MOD
     
-    inv = [1]*(MAX + 1)
-    inv[MAX] = pow(fact[MAX], MOD - 2, MOD)
-    for i in range(MAX - 1, 0, -1):
-        inv[i] = (inv[i + 1] * (i + 1)) % MOD
+    inv = [1]*(MAX+1)
+    inv[MAX] = pow(fact[MAX], MOD-2, MOD)
+    for i in range(MAX-1, 0, -1):
+        inv[i] = (inv[i+1]*(i+1)) % MOD
 
     return fact, inv
 
@@ -17,13 +16,13 @@ def C(n, r):
     """ Computes binomial coefficient C(n, r) = nCr % MOD """
     if r > n or r < 0:
         return 0
-    return (fact[n] * inv[r] % MOD) * inv[n - r] % MOD
+    return (fact[n] * inv[r] % MOD) * inv[n-r] % MOD
 
 def P(n, r):
     """Computes the permutation count P(n, r) = nPr modulo MOD."""
     if r > n or r < 0:
         return 0
-    return (fact[n] * inv[n - r]) % MOD
+    return (fact[n] * inv[n-r]) % MOD
 
 fact, inv = precompute_factorials(MAX, MOD)
 
