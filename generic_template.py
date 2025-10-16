@@ -176,6 +176,8 @@ for tc in range(1, T+1):
     
 # wrapper for XORing in set and dictionary :O
 #-------------------------------------------------------------------------------------------------------------------#
+from random import getrandbits
+
 class MyDict:
     def __init__(self, func=lambda: 0):
         self.random = getrandbits(64)
@@ -223,6 +225,8 @@ class MyDict:
         
         
 #-------------------------------------------------------------------------------------------------------------------#        
+from random import getrandbits
+
 class MySet:
     def __init__(self, iterable=None):
         self.random = getrandbits(64)
