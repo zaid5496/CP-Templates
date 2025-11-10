@@ -1,3 +1,5 @@
+# https://leetcode.com/problems/minimum-operations-to-convert-all-elements-to-zero
+
 def prev_greater(arr):
     """Finds the Previous Greater Element (PGE) for each element in the array."""
     n = len(arr)
