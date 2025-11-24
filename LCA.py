@@ -141,7 +141,16 @@ class LCA:
         l = self.lca(a, b)
         return self.dist[a] + self.dist[b] - 2 * self.dist[l]
 
+'''''
+n = int(input())
+tree = LCA(n+1)
 
+for i in range(n-1):
+    u, v = inp()
+    tree.add_edge(u, v, w)
+    
+tree.build(1)
+'''''
 
 
 
@@ -242,6 +251,7 @@ class LCA:
 # print(tree_ancestor.lca(3, 4))  # Output: 1 (LCA of nodes 3 and 4 is 1)
 # print(tree_ancestor.lca(5, 6))  # Output: 2 (LCA of nodes 5 and 6 is 2)
 # print(tree_ancestor.lca(3, 6))  # Output: 0 (LCA of nodes 3 and 6 is 0)
+
 
 
 
