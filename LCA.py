@@ -1,5 +1,5 @@
 # https://codeforces.com/contest/1702/problem/G2
-
+# templates for both weighted and unweighted tree
 # change root if required
 
 class LCA:
@@ -77,10 +77,69 @@ tree.build(1)
 
 
 
+'''
+below is the lca template if the tree is weighted
+'''
 
 
+class LCA:
+    def __init__(self, n):
+        self.n = n
+        self.LOG = n.bit_length()
+        self.level = [0] * n       # number of edges from root
+        self.dist = [0] * n        # weighted distance from root
+        self.ancestor = [[-1] * self.LOG for _ in range(n)]
+        self.adj = [[] for _ in range(n)]
 
+    def add_edge(self, u, v, w):
+        self.adj[u].append((v, w))
+        self.adj[v].append((u, w))
 
+    def dfs(self, root=1):
+        stack = [(root, -1)]
+        self.level[root] = 0
+        self.dist[root] = 0
+
+        while stack:
+            v, p = stack.pop()
+            self.ancestor[v][0] = p
+
+            for j in range(1, self.LOG):
+                if self.ancestor[v][j-1] != -1:
+                    self.ancestor[v][j] = self.ancestor[self.ancestor[v][j-1]][j-1]
+
+            for to, w in self.adj[v]:
+                if to == p:
+                    continue
+                self.level[to] = self.level[v] + 1
+                self.dist[to] = self.dist[v] + w
+                stack.append((to, v))
+
+    def build(self, root=1):
+        self.dfs(root)
+
+    def lca(self, a, b):
+        if self.level[a] < self.level[b]:
+            a, b = b, a
+
+        diff = self.level[a] - self.level[b]
+        for j in range(self.LOG):
+            if (diff >> j) & 1:
+                a = self.ancestor[a][j]
+
+        if a == b:
+            return a
+
+        for j in reversed(range(self.LOG)):
+            if self.ancestor[a][j] != self.ancestor[b][j]:
+                a = self.ancestor[a][j]
+                b = self.ancestor[b][j]
+
+        return self.ancestor[a][0]
+
+    def distance(self, a, b):
+        l = self.lca(a, b)
+        return self.dist[a] + self.dist[b] - 2 * self.dist[l]
 
 
 
@@ -183,6 +242,7 @@ tree.build(1)
 # print(tree_ancestor.lca(3, 4))  # Output: 1 (LCA of nodes 3 and 4 is 1)
 # print(tree_ancestor.lca(5, 6))  # Output: 2 (LCA of nodes 5 and 6 is 2)
 # print(tree_ancestor.lca(3, 6))  # Output: 0 (LCA of nodes 3 and 6 is 0)
+
 
 
 
