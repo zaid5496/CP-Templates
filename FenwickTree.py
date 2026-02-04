@@ -1,3 +1,7 @@
+# BIT can be used to calculate any prefix values under a function (without updates)
+# eg: https://codeforces.com/contest/1788/problem/E
+
+
 class FenwickTree:
     def __init__(self, n):
         # Initialize the Fenwick Tree with n elements
