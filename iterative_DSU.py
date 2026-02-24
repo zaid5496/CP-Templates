@@ -3,6 +3,8 @@
 # https://leetcode.com/problems/largest-component-size-by-common-factor
 # https://leetcode.com/problems/gcd-sort-of-an-array
 # https://codeforces.com/contest/1857/problem/G
+# https://codeforces.com/contest/2117/problem/G
+
 
 class DSU:
     def __init__(self, n):
