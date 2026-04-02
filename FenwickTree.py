@@ -1,6 +1,8 @@
 # BIT can be used to calculate any prefix values under a function (without updates)
-# eg: https://codeforces.com/contest/1788/problem/E
-
+# standard problems:
+# https://codeforces.com/contest/1788/problem/E
+# https://leetcode.com/problems/reverse-pairs/description/
+# https://leetcode.com/problems/count-of-range-sum/description/
 
 class FenwickTree:
     def __init__(self, n):
