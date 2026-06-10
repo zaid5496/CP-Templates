@@ -2,6 +2,7 @@
 # used for idempodent operations such as min, max, GCD etc.
 
 # https://codeforces.com/contest/1878/problem/E
+# https://leetcode.com/problems/maximum-total-subarray-value-ii/description/
 
 
 class SparseTable: 
