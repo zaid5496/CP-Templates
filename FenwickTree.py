@@ -30,6 +30,26 @@ class FenwickTree:
         """Query the sum of values in the range [left, right]."""
         return self.query(right) - self.query(left - 1)
 
+    def kth(self, k):
+        """
+        Returns the smallest index such that prefix_sum(index) >= k.
+        Returns -1 if k is invalid.
+        """
+        if k <= 0 or k > self.query(self.n):
+            return -1
+
+        idx = 0
+        bit = 1 << (self.n.bit_length() - 1)
+
+        while bit:
+            nxt = idx + bit
+            if nxt <= self.n and self.tree[nxt] < k:
+                idx = nxt
+                k -= self.tree[nxt]
+            bit >>= 1
+
+        return idx + 1
+
     def build(self, arr):
         """Build the Fenwick Tree from an array."""
         for i in range(1, len(arr) + 1):
