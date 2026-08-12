@@ -7,7 +7,9 @@ def prev_greater(arr):
     stack = []  
 
     for i in range(n):
-        while stack and arr[stack[-1]] <= arr[i]:        # for strict behaviour remove =
+        # Strict PGE: remove elements <= arr[i]
+        # Non-strict PGE: change <= to <
+        while stack and arr[stack[-1]] <= arr[i]:       
             stack.pop()
         if stack:
             result[i] = arr[stack[-1]]                # change here to get the indices
@@ -22,6 +24,8 @@ def next_greater(arr):
     stack = [] 
     
     for i in range(n):
+        # Non-strict NGE: remove elements < arr[i]
+        # Strict NGE: change < to <=
         while stack and arr[stack[-1]] < arr[i]:
             index = stack.pop()
             result[index] = arr[i]                    # change here to get the indices
@@ -59,6 +63,8 @@ def next_smaller(arr):
     stack = []
 
     for i in range(n):
+        # Non-strict NSE: remove elements > arr[i]
+        # Strict NSE: change > to >=
         while stack and arr[stack[-1]] > arr[i]:
             index = stack.pop()
             result[index] = arr[i]                      # Use 'i' for indices instead of value
@@ -74,6 +80,8 @@ def prev_smaller(arr):
     stack = []
 
     for i in range(n):
+        # Strict PSE: remove elements >= arr[i]
+        # Non-strict PSE: change >= to >
         while stack and arr[stack[-1]] >= arr[i]:        # for strict behaviour remove =
             stack.pop()
         if stack:
