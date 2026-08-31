@@ -55,7 +55,7 @@ class DSU:
     
     def get_components(self):
         """returns the number of connected components"""
-        return self.components - 1  # - 1 bcs 1 of 0 indexing
+        return self.components - 1  # remove -1 if you are using 0 indexed nodes else keep it for 1-indexed nodes
     
     def max_compsize(self):
         """returns the size of the largest component"""
