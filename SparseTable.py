@@ -10,8 +10,7 @@ class SparseTable:
         self.n = len(arr) 
         self.func = func 
         self.k = self.n.bit_length() 
-        self.st = [[0] * self.n for _ in 
-range(self.k)] 
+        self.st = [[0] * self.n for _ in range(self.k)] 
         self.build(arr) 
  
     def build(self, arr):                             # O(N log N) 
@@ -24,8 +23,6 @@ range(self.k)]
                     self.st[j-1][i], 
                     self.st[j-1][i + half] 
                 ) 
- 
- 
  
  
     def query(self, l, r):                            # O(1) 
